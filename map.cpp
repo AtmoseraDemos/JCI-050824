@@ -8,13 +8,30 @@ using std::cout, std::endl, std::string, std::map, std::less;
 std::map<string, string , less<string>> AutoCorrect;
 
 
+/**
+ * Initializes the AutoCorrect table with predefined corrections.
+ * This function populates the AutoCorrect table with key-value pairs
+ * representing common misspellings and their corresponding corrections.
+ * Examples:
+ *  AutoCorrect["abouta"] = "about a";
+ *  AutoCorrect["agian"] = "again";
+ *  AutoCorrect["towrad"] = "toward";
+ *  AutoCorrect["the the"] = "the";
+ */
 void InitializeAutoCorrectTable()
 {
 	AutoCorrect["abouta"] = "about a";
 	AutoCorrect["agian"] = "again";
 	AutoCorrect["towrad"] = "toward";
+	AutoCorrect["the the"] = "the";
 }
 
+/**
+ * Finds the autocorrected version of a given word.
+ * 
+ * @param word The word to be autocorrected.
+ * @return The autocorrected version of the word, if found. Otherwise, returns the original word.
+ */
 string FindAutoCorrect(string word)
 {
 	auto it = AutoCorrect.find(word);
@@ -43,5 +60,8 @@ void testAutoCorrect()
 
 int main()
 {
-    return 0;
+	InitializeAutoCorrectTable();
+	testAutoCorrect();
+	
+	return 0;
 }
